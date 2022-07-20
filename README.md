@@ -51,13 +51,17 @@ Sobre las imágenes tomadas entre el 01/02/2022 y el 27/02/2022, para Corrientes
 
 El mosaico resultante fue el siguiente:
 
-![composición base.](./gen/imagenes/base_nbr.png?raw=true)
+<p align="center">
+    <img src="./gen/imagenes/base_nbr.png?raw=true" alt="composición base." width="250"/>
+</p>
 
 Las partes blancas son nubes que el algoritmo no pudo corregir. Las zonas transparentes corresponden a cuerpos de agua. A pesar de no ser de calidad óptima, las zonas de incendio principales (céntricas) no resultaron afectadas.
 
 Sobre la imágen se calculó el índice normalizado de superficie quemada (NBR):
 
-$NBR = \frac{NIR - SWIR}{NIR + SWIR}$
+<p align="center">
+    $NBR = \frac{NIR - SWIR}{NIR + SWIR}$
+</p>
 
 donde NIR refiere a las longitudes de onda del infrarrojo cercano, y SWIR a las del infrarrojo de onda corta. 
 
@@ -67,7 +71,10 @@ En el sentinel-2, la banda de imágen ‘B8’ corresponde al espectro de infrar
 
 Siguiendo la metodología del INTA, se procedió a clasificar por umbral entre zonas quemadas y no quemadas. De manera unitemporal. Se tomó el rango: [-1, -.080] para designar la superficie quemada: 
 
-![zonas quemadas.](./gen/imagenes/resultado_nbr.png?raw=true)
+<p align="center">
+    <img src="./gen/imagenes/resultado_nbr.png?raw=true" alt="resultado NBR." width="250"/>
+</p>
+
 
 Esta decisión arrojó los mejores resultados en relación al estudio del INTA (el mismo no aclara el umbral utilizado). Es importante considerar que una selección correcta, [en realidad](https://minerva.usc.es/xmlui/bitstream/handle/10347/3819/RR_5_7.pdf?sequence=1&isAllowed=y), debería optimizar iterativamente los resultados para disminuir tanto los errores por comisión, como por omisión. 
 
@@ -78,7 +85,7 @@ En base al resultado, se procedió a vectorizar y calcular el área de superfici
 Se tomó una escala de 1 px = 20 m2 para realizar el cálculo.
 
 Resultados:
-
+<p align="center">
 | zona | Area quemada | Total | Porcentaje |
 | ---- | ------------ | ----- | ---------- |
 | Corrientes | 1,044,331 ha | 8,938,395 ha | 11.68% |
@@ -87,7 +94,7 @@ Resultados:
 | Parque nacional Mburucuyá | 70 ha | 17,718 ha | 0.39% |
 | Parque provincial Iberá | 34,970 ha | 563,764 ha | 6.20% |
 | Reserva provincial Iberá | 237,735 ha | 1,144,177 ha | 20.78% |
-
+</p>
 
 ## Recuperación temprana
 
@@ -99,19 +106,24 @@ El HRT expresa ‘la velocidad inicial de recuperación’, relacionada a caract
 
 El NDVI se define como la diferencia normalizada entre las bandas de Infrarrojo cercano (‘B8’ en el Sentinel-2) y el espectro rojo (‘B5’). Da cuenta de la presencia de vegetación sana en una zona.
 
+<p align="center">
 $NDVI = \frac{NIR - RED}{NIR + RED}$
+</p>
 
 Nosotros tomamos la mediana del 2021, pero los autores utilizan un periodo más largo en su analisis (cuatro años). Respecto al mínimo NDVI, se tomó como punto de partida el 27 de febrero, mismo día base para el que se estimó el NBR.
 
 
 Para la mediana 2021 se utilizó el siguiente mosaico:
 
-![mediana NDVI.](./gen/imagenes/mediana_2021.png?raw=true)
+<p align="center">
+    <img src="./gen/imagenes/mediana_2021.png?raw=true" alt="mediana NDVI 2021." width="250"/>
+</p>
 
 Que corresponde a una composición sobre las medianas de cada píxel para la colección de imágenes satelitales en el periodo 2021-01-01 a 2021-12-31, descartando imágenes con presencia elevada de nubes. 
 
 Sobre este mosaico se enmascaró para reducir el área de estudio a la zona quemada y se procedió a calcular el NDVI y posteriormente a reducir para encontrar el valor mediano. El procedimiento se repitió para calcular las medianas de las distintas regiones:
 
+<p align="center">
 | **zona** | **NDVI mediano 2021** |
 | ---- | ----------------- |
 | Corrientes | 0.4961 |
@@ -120,7 +132,7 @@ Sobre este mosaico se enmascaró para reducir el área de estudio a la zona quem
 | Parque nacional Mburucuyá | 0.3655 |
 | Parque provincial Iberá | 0.3867 |
 | Reserva provincial Iberá | 0.4414 |
-
+</p>
 
 Para realizar el cálculo de HRT se tomaron 5 momentos de referencia: 27 de febrero, 31 de marzo, 30 de abril, 31 de mayo y 30 de junio.
 
@@ -130,49 +142,48 @@ Se aislaron las zona de incendio dentro de cada región de interés (por enmasca
 
 Las imagenes que se utilizaron fueron las siguientes.
 
-febrero:
+febrero, imágen base y resultado:
 
-![febrero base hrt.](./gen/imagenes/base_hrt_feb.png?raw=true)
-
-resultado:
-
-![febrero res hrt.](./gen/imagenes/resultado_hrt_feb.png?raw=true)
+<p align="center">
+    <img src="./gen/imagenes/base_hrt_feb.png?raw=true" alt="febrero base hrt." width="250"/>
+    <img src="./gen/imagenes/resultado_hrt_feb.png?raw=true" alt="febrero resultado hrt." width="250"/>
+</p>
 
 Las zonas grises corresponden al área quemada. Las verdes al área que es igual o superior a la mediana del 2021 para la totalidad de corrientes. 
 
 Vale la pena notar que en el periodo para febrero, a pesar de ser el mismo mes en que ocurrieron los incendios, se registran algunos valores iguales o por encima de la media del 2021 (si bien pocos). Esto tiene que ver con la intensidad del fuego en esas zonas en particular. 
 
-marzo:
-![marzo base hrt.](./gen/imagenes/base_hrt_mar.png?raw=true)
+marzo, imágen base y resultado:
 
-resultado:
+<p align="center">
+    <img src="./gen/imagenes/base_hrt_mar.png?raw=true" alt="marzo base hrt." width="250"/>
+    <img src="./gen/imagenes/resultado_hrt_mar.png?raw=true" alt="marzo resultado hrt." width="250"/>
+</p>
 
-![marzo res hrt.](./gen/imagenes/resultado_hrt_mar.png?raw=true)
+abril, imágen base y resultado:
 
-abril:
-![abril base hrt.](./gen/imagenes/base_hrt_abr.png?raw=true)
+<p align="center">
+    <img src="./gen/imagenes/base_hrt_abr.png?raw=true" alt="abril base hrt." width="250"/>
+    <img src="./gen/imagenes/resultado_hrt_abr.png?raw=true" alt="abril resultado hrt." width="250"/>
+</p>
 
-resultado:
+mayo, imágen base y resultado:
 
-![abril res hrt.](./gen/imagenes/resultado_hrt_abr.png?raw=true)
+<p align="center">
+    <img src="./gen/imagenes/base_hrt_may.png?raw=true" alt="mayo base hrt." width="250"/>
+    <img src="./gen/imagenes/resultado_hrt_may.png?raw=true" alt="mayo resultado hrt." width="250"/>
+</p>
 
-mayo:
-![mayo base hrt.](./gen/imagenes/base_hrt_may.png?raw=true)
+junio, imágen base y resultado:
 
-resultado:
-
-![mayo res hrt.](./gen/imagenes/resultado_hrt_may.png?raw=true)
-
-junio:
-![junio base hrt.](./gen/imagenes/base_hrt_jun.png?raw=true)
-
-resultado:
-
-![junio res hrt.](./gen/imagenes/resultado_hrt_jun.png?raw=true)
-
+<p align="center">
+    <img src="./gen/imagenes/base_hrt_jun.png?raw=true" alt="junio base hrt." width="250"/>
+    <img src="./gen/imagenes/resultado_hrt_jun.png?raw=true" alt="junio resultado hrt." width="250"/>
+</p>
 
 En conclusión, el area estimada que presenta indicios de recuperación (>= mediana ndvi 2021 para la zona en particular), por fecha, es:
 
+<p align="center">
 | fecha | Corrientes | Esteros del Iberá | Parque nacional Iberá | Parque nacional Mburucuyá | Parque provincial Iberá | Reserva provincial Iberá |
 |------ | ---------- | ----------------- | --------------------- | ------------------------- | ----------------------- | ------------------------ |
 | 02-27 | 8938 ha | 9249 ha | 11211 ha | 0.7 ha | 3932 ha | 13561 ha |
@@ -180,9 +191,11 @@ En conclusión, el area estimada que presenta indicios de recuperación (>= medi
 | 04-30 | 508014 ha | 260758 ha | 65277 ha | 31 ha | 23067 ha | 145396 ha |
 | 05-31 | 634275 ha | 346621 ha | 76366 ha | 44 ha | 25580 ha | 170928 ha |
 | 06-30 | 560726 ha | 316102 ha | 73376 ha | 40 ha | 23853 ha | 160132 ha |
+</p>
 
 En porcentaje, respecto al total quemado en la zona:
 
+<p align="center">
 | fecha | Corrientes | Esteros del Iberá | Parque nacional Iberá | Parque nacional Mburucuyá | Parque provincial Iberá | Reserva provincial Iberá |
 |------ | ---------- | ----------------- | --------------------- | ------------------------- | ----------------------- | ------------------------ |
 | 02-27 | 0.86% | 1.60% | 11.93% | 1.01% | 11.25% | 5.70% |
@@ -190,6 +203,7 @@ En porcentaje, respecto al total quemado en la zona:
 | 04-30 | 48.64% | 45.18% | 69.46% | 45.30% | 65.96% | 61.16% |
 | 05-31 | 60.74% | 60.05% | 81.26% | 63.24% | 73.15% | 71.90% |
 | 06-30 | 53.69% | 54.76% | 78.08% | 57.71% | 68.21% | 67.36% |
+</p>
 
 Es decir, entre finales de abril y mayo se habría alcanzando el umbral de recuperación temprana para la zona. Un HRT de entre 60 y 90 días. 
 

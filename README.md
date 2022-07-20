@@ -63,7 +63,6 @@ El mosaico resultante fue el siguiente:
 Las partes blancas son nubes que el algoritmo no pudo corregir. Las zonas transparentes corresponden a cuerpos de agua. A pesar de no ser de calidad óptima, las zonas de incendio principales (céntricas) no resultaron afectadas.
 
 Sobre la imágen se calculó el índice normalizado de superficie quemada (NBR):
-
 </br></br>
 <p align="center">
     $NBR = \frac{NIR - SWIR}{NIR + SWIR}$
@@ -93,8 +92,8 @@ En base al resultado, se procedió a vectorizar y calcular el área de superfici
 Se tomó una escala de 1 px = 20 m2 para realizar el cálculo.
 
 Resultados:
-
 </br></br>
+
 | zona | Area quemada | Total | Porcentaje |
 | ---- | ------------ | ----- | ---------- |
 | Corrientes | 1,044,331 ha | 8,938,395 ha | 11.68% |
@@ -103,6 +102,7 @@ Resultados:
 | Parque nacional Mburucuyá | 70 ha | 17,718 ha | 0.39% |
 | Parque provincial Iberá | 34,970 ha | 563,764 ha | 6.20% |
 | Reserva provincial Iberá | 237,735 ha | 1,144,177 ha | 20.78% |
+
 </br></br>
 
 ## Recuperación temprana
@@ -113,7 +113,7 @@ Según los autores, este es un índice de alcance moderado, en tanto su capacida
 
 El HRT expresa ‘la velocidad inicial de recuperación’, relacionada a características propias al tipo de vegetación y condiciones climáticas inmediatamente posteriores al fuego. Es: la cantidad de días necesarios para alcanzar el 50% de recuperación desde el mínimo NDVI observado durante el año del fuego hasta el valor mediano previo al fuego. 
 
-El NDVI se define como la diferencia normalizada entre las bandas de Infrarrojo cercano (‘B8’ en el Sentinel-2) y el espectro rojo (‘B5’). Da cuenta de la presencia de vegetación sana en una zona.
+El NDVI se define como la diferencia normalizada entre las bandas de Infrarrojo cercano (‘B8’ en el Sentinel-2) y el espectro rojo (‘B5’). Da cuenta de la presencia de vegetación sana en una zona:
 
 </br></br>
 <p align="center">
@@ -145,6 +145,7 @@ Sobre este mosaico se enmascaró para reducir el área de estudio a la zona quem
 | Parque nacional Mburucuyá | 0.3655 |
 | Parque provincial Iberá | 0.3867 |
 | Reserva provincial Iberá | 0.4414 |
+
 </br></br>
 
 Para realizar el cálculo de HRT se tomaron 5 momentos de referencia: 27 de febrero, 31 de marzo, 30 de abril, 31 de mayo y 30 de junio.
@@ -207,6 +208,7 @@ junio, imágen base y resultado:
 En conclusión, el area estimada que presenta indicios de recuperación (>= mediana ndvi 2021 para la zona en particular), por fecha, es:
 
 </br></br>
+
 | fecha | Corrientes | Esteros del Iberá | Parque nacional Iberá | Parque nacional Mburucuyá | Parque provincial Iberá | Reserva provincial Iberá |
 |------ | ---------- | ----------------- | --------------------- | ------------------------- | ----------------------- | ------------------------ |
 | 02-27 | 8938 ha | 9249 ha | 11211 ha | 0.7 ha | 3932 ha | 13561 ha |
@@ -214,6 +216,7 @@ En conclusión, el area estimada que presenta indicios de recuperación (>= medi
 | 04-30 | 508014 ha | 260758 ha | 65277 ha | 31 ha | 23067 ha | 145396 ha |
 | 05-31 | 634275 ha | 346621 ha | 76366 ha | 44 ha | 25580 ha | 170928 ha |
 | 06-30 | 560726 ha | 316102 ha | 73376 ha | 40 ha | 23853 ha | 160132 ha |
+
 </br></br>
 
 En porcentaje, respecto al total quemado en la zona:
@@ -226,6 +229,7 @@ En porcentaje, respecto al total quemado en la zona:
 | 04-30 | 48.64% | 45.18% | 69.46% | 45.30% | 65.96% | 61.16% |
 | 05-31 | 60.74% | 60.05% | 81.26% | 63.24% | 73.15% | 71.90% |
 | 06-30 | 53.69% | 54.76% | 78.08% | 57.71% | 68.21% | 67.36% |
+
 </br></br>
 
 Es decir, entre finales de abril y mayo se habría alcanzando el umbral de recuperación temprana para la zona. Un HRT de entre 60 y 90 días. 

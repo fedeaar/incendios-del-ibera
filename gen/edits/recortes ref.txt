@@ -1,0 +1,23 @@
+mercedes:
+- Octubre 2021 a mayo 2022: Efecto de los incendios en torno a la ciudad de Mercedes, Corrientes (centro de la imágen). Composición de imágenes satelitales del Landsat-8. Cortesía del U.S. Geological Survey / Google Earth Engine. 
+
+resistencia y corrientes:
+- Octubre 2021 a mayo 2022: efecto de los incendios al noroeste de la provincia. Arriba a la izquierda las ciudades de Resistencia y Corrientes. Composición de imágenes satelitales del Landsat-8. Cortesía del U.S. Geological Survey / Google Earth Engine. 
+
+loreto:
+- Octubre 2021 a mayo 2022: focos de incendio cerca de la localidad de Loreto, Corrientes (a la derecha de la imágen). Composición de imágenes satelitales del Landsat-8. Cortesía del U.S. Geological Survey / Google Earth Engine. 
+
+noroeste:
+- Febrero 2022: incendios al noroeste de la provincia. Composición de imágenes satelitales del Landsat-8. Cortesía del U.S. Geological Survey / Google Earth Engine. 
+
+col. romero y loreto:
+- Enero 2021: pequeños focos entre las localidades de Colonia Romero (izquierda) y Loreto (derecha), Corrientes. Composición de imágenes satelitales del Landsat-8. Cortesía del U.S. Geological Survey / Google Earth Engine. 
+
+lago esteros:
+- Octubre 2021 a mayo 2022: campo quemado en torno al lago Esteros del Iberá, Corrientes. Composición de imágenes satelitales del Landsat-8. Cortesía del U.S. Geological Survey / Google Earth Engine. 
+
+corrientes:
+- Corrientes. Composición de imágenes satelitales del Landsat-8. Cortesía del U.S. Geological Survey / Google Earth Engine. 
+
+parque:
+- Octubre 2021 a junio 2022: el efecto de los incendios sobre la reserva provincial iberá, Corrientes. Composición de imágenes satelitales del Landsat-8. Cortesía del U.S. Geological Survey / Google Earth Engine. 

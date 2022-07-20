@@ -1,0 +1,33 @@
+{
+    "corrientes": {
+      "masked_area": 7259752120.959223,
+      "percent": 0.08122025133679524,
+      "total_area": 89383521984.62521
+    },
+    "esteros del ibera": {
+      "masked_area": 4141847099.24741,
+      "percent": 0.10560279552576543,
+      "total_area": 39220998635.74979
+    },
+    "parque nacional ibera": {
+      "masked_area": 902907048.6082717,
+      "percent": 0.47062991748639055,
+      "total_area": 1918507547.1416063
+    },
+    "parque nacional mburucuya": {
+      "masked_area": 116799.7917892157,
+      "percent": 0.0006592451745740729,
+      "total_area": 177172008.6759498
+    },
+    "parque provincial ibera": {
+      "masked_area": 309228646.25934404,
+      "percent": 0.05485238582912346,
+      "total_area": 5637469393.266782
+    },
+    "reserva provincial ibera": {
+      "masked_area": 2041383538.923775,
+      "percent": 0.1784175221521975,
+      "total_area": 11441609065.629725
+    },
+    "scale": 250
+}

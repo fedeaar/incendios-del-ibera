@@ -1,0 +1,4 @@
+ecorregiones: https://mapas.apn.gob.ar/layers/geonode:arg_ecorregiones/metadata_detail
+areas protegidas provinciales: https://mapas.apn.gob.ar/layers/geoportal_express_data:geonode:arg_aps_provinciales
+areas protegidas nacionales: https://mapas.apn.gob.ar/layers/:geonode:apn_limites
+parque provincial ibera: https://www.openstreetmap.org/relation/10421113#map=9/-28.1931/-57.3184

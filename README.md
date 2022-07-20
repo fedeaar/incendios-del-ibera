@@ -216,7 +216,7 @@ Junio, imágen base y resultado:
 </p>
 </br></br>
 
-En conclusión, el area estimada que presenta indicios de recuperación (>= mediana ndvi 2021 para la zona en particular), por fecha, es:
+En conclusión, las áreas estimada que presentan indicios de recuperación (>= mediana ndvi 2021 para cada zona en particular), por fecha, son:
 
 </br>
 
@@ -230,7 +230,7 @@ En conclusión, el area estimada que presenta indicios de recuperación (>= medi
 
 </br></br>
 
-En porcentaje, respecto al total quemado en la zona:
+En porcentaje, respecto al total quemado:
 
 </br>
 
@@ -244,7 +244,7 @@ En porcentaje, respecto al total quemado en la zona:
 
 </br>
 
-Es decir, entre finales de abril y mayo se habría alcanzando el umbral de recuperación temprana para la zona. Un HRT de entre 60 y 90 días. 
+Es decir, entre finales de abril y mayo se habría superado el umbral de recuperación temprana. Un HRT de entre 60 y 90 días. 
 
 La investigación se realizó también con el dataset de MODIS (que mide niveles de NDVI cada 16 días, pero en una resolución menor: 250mts). En este caso, el resultado da indicios que para mediados de abril ya se habría alcanzado la recuperación temprana en la mayoría de las zonas (salvo el Parque Nacional Mburucuyá), los datos se encuentran en `./gen/analisis`. 
 

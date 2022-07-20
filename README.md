@@ -8,8 +8,6 @@ Todas las imágenes en éste repositorio son cortesía del U.S. Geological Surve
 
 Los scripts están escritos para funcionar con la interfaz que provee el servicio de [Google Earth Engine](https://earthengine.google.com/).
 
-Los archivos en .gitignore se descartaron del repositorio por su peso, son imágenes gigantes y geometrías base. Los links a las geometrías están en `src.txt`.
-
 </br></br>
 
 # Metodología
@@ -26,7 +24,7 @@ Para las imágenes de enero y febrero se iteró el proceso varias veces, con dis
 
 Previo a la compresión se utilizó la siguiente escala: 1 px = 30 m2.
 
-Sobre las imágenes base se procedió a recortar distintas areas de interés en torno a:
+Sobre las imágenes base se procedió a recortar distintas áreas de interés en torno a:
 
 - La ciudad de Mercedes.
 - La ciudad de Corrientes.
@@ -46,7 +44,7 @@ Para ello se utilizaron imágenes del dataset: “Harmonized Sentinel-2 MSI: Mul
 Sobre las imágenes tomadas entre el 01/02/2022 y el 27/02/2022, para Corrientes, se armó un mosaico bajo el siguiente criterio:
 
 - Enmascarar nubes, humo y agua, según la clasificación realizada por el algoritmo de Hollstein. 
-- Componer la imagen priorizando por fecha más reciente. 
+- Componer la imágen priorizando por fecha más reciente. 
 
 El mosaico resultante fue el siguiente:
 
@@ -56,7 +54,7 @@ El mosaico resultante fue el siguiente:
 </p>
 </br></br>
 
-Las partes blancas son nubes que el algoritmo no pudo corregir. Las zonas transparentes corresponden a cuerpos de agua. A pesar de no ser de calidad óptima, las zonas de incendio principales (céntricas) no resultaron afectadas.
+Las partes blancas son nubes que el algorítmo no pudo corregir. Las zonas transparentes corresponden a cuerpos de agua. A pesar de no ser de calidad óptima, las zonas de incendio principales (céntricas) no resultaron afectadas.
 
 Sobre la imágen se calculó el índice normalizado de superficie quemada (NBR):
 </br></br>
@@ -65,7 +63,7 @@ Sobre la imágen se calculó el índice normalizado de superficie quemada (NBR):
 </p>
 </br></br>
 
-donde NIR refiere a las longitudes de onda del infrarrojo cercano, y SWIR a las del infrarrojo de onda corta. 
+Donde NIR refiere a las longitudes de onda del infrarrojo cercano, y SWIR a las del infrarrojo de onda corta. 
 
 El índice sirve para resaltar las áreas quemadas en grandes zonas de incendio. 
 
@@ -139,7 +137,7 @@ Para la mediana 2021 se utilizó el siguiente mosaico:
 
 Que corresponde a una composición sobre las medianas de cada píxel para la colección de imágenes satelitales en el periodo 2021-01-01 a 2021-12-31, descartando imágenes con presencia elevada de nubes. 
 
-Sobre este mosaico se enmascaró para reducir el área de estudio a la zona quemada y se procedió a calcular el NDVI y posteriormente a reducir para encontrar el valor mediano. 
+Sobre este mosaico se enmascaró para reducir el área de estudio a la zona quemada, se procedió a calcular el NDVI y posteriormente a encontrar el valor mediano. 
 
 </br>
 
@@ -159,9 +157,9 @@ El procedimiento se repitió para calcular las medianas de las distintas regione
 
 Para realizar el cálculo de HRT se tomaron 5 momentos de referencia: 27 de febrero, 31 de marzo, 30 de abril, 31 de mayo y 30 de junio.
 
-Para cada fecha se generó un mosaico sobre un periodo de a lo sumo 45 días previos a la fecha, donde se descartaron imágenes con gran presencia de nubes y se  priorizó por fecha más cercana a la fecha objetivo para cada una (en general, las fotos están dentro del mismo mes. Solo en marzo un ‘tile’ de la imágen corresponde a febrero). 
+Para cada fecha se generó un mosaico sobre un periodo de a lo sumo 45 días previos al día considerado, donde se descartaron imágenes con gran presencia de nubes y se  priorizó por fecha más cercana a la fecha objetivo (en general, las fotos están dentro del mismo mes. Solo en marzo un ‘tile’ de la imágen corresponde a febrero). 
 
-Se aislaron las zona de incendio dentro de cada región de interés (por enmascaramiento), luego se clasificó por umbral el área correspondiente a un NDVI mayor o igual a la mediana 2021 de cada región, y finalmente se calculó el área total vectorizada.
+Se aisló la zona de incendio dentro de cada región de interés (por enmascaramiento), luego se clasificó por umbral el área correspondiente a un NDVI mayor o igual a la mediana 2021 de cada región, y finalmente se calculó el área total vectorizada.
 
 </br>
 
@@ -176,7 +174,7 @@ Febrero, imágen base y resultado:
 
 Las zonas grises corresponden al área quemada. Las verdes al área que es igual o superior a la mediana del 2021 para la totalidad de corrientes. 
 
-Vale la pena notar que en el periodo para febrero, a pesar de ser el mismo mes en que ocurrieron los incendios, se registran algunos valores iguales o por encima de la media del 2021 (si bien pocos). Esto tiene que ver con la intensidad del fuego en esas zonas en particular. 
+Vale la pena notar que en el periodo para febrero, a pesar de ser el mismo mes en que ocurrieron los incendios, se registran algunos valores iguales o por encima de la media del 2021 (si bien pocos). Esto tiene que ver con la intensidad del fuego en esas zonas en particular y posibles errores de comisión. 
 
 </br>
 
@@ -216,7 +214,7 @@ Junio, imágen base y resultado:
 </p>
 </br></br>
 
-En conclusión, las áreas estimada que presentan indicios de recuperación (>= mediana ndvi 2021 para cada zona en particular), por fecha, son:
+En conclusión, las áreas estimada que presentan indicios de recuperación (>= mediana ndvi 2021, para cada zona en particular), por fecha, son:
 
 </br>
 
@@ -244,9 +242,11 @@ En porcentaje, respecto al total quemado:
 
 </br>
 
-Es decir, entre finales de abril y mayo se habría superado el umbral de recuperación temprana. Un HRT de entre 60 y 90 días. 
+Es decir, entre finales de abril y mayo se habría superado el umbral de recuperación temprana. Un HRT de entre 60 y 90 días. Esta es una velocidad rápida y tiene que ver principalmente, según las cualidades del índice, con el tipo de vegetación presente en los Esteros y las condiciones climáticas de la región.
 
-La investigación se realizó también con el dataset de MODIS (que mide niveles de NDVI cada 16 días, pero en una resolución menor: 250mts). En este caso, el resultado da indicios que para mediados de abril ya se habría alcanzado la recuperación temprana en la mayoría de las zonas (salvo el Parque Nacional Mburucuyá), los datos se encuentran en `./gen/analisis`. 
+La investigación se realizó también con el dataset de MODIS (que mide niveles de NDVI cada 16 días, pero en una resolución menor: 250mts). En este caso, el resultado da indicios que para mediados de abril ya se habría alcanzado la recuperación temprana en la mayoría de las zonas (salvo el Parque Nacional Mburucuyá).
+
+Los datos se encuentran en `./gen/analisis`. 
 
 
 

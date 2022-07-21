@@ -1,4 +1,5 @@
 gen/edits/correcciones
 gen/edits/recortes
 gen/gee/landsat-8
+nb/.ipynb_checkpoints
 src/*

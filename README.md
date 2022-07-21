@@ -2,7 +2,7 @@
 
 </br></br>
 <p align="center">
-    <img src="./gen/edits/recortes (web)/parque_22-02.jpeg" alt="Reserva nacional Iberá, febrero 2022.">
+    <img src="./gen/edits/recortes (web)/parque_22-02.jpeg?raw=true" alt="Reserva nacional Iberá, febrero 2022.">
 </p>
 </br></br>
 
@@ -10,7 +10,7 @@ Un análisis exploratorio sobre los incendios que ocurrieron en los Esteros del 
 
 Los resultados se pueden leer acá.
 
-Todas las [imágenes]("./gen/edits") en éste repositorio son cortesía del U.S. Geological Survey (landsat-8) y Copernicus Sentinel Data (sentinel-2).
+Todas las [imágenes](./gen/edits) en éste repositorio son cortesía del U.S. Geological Survey (landsat-8) y Copernicus Sentinel Data (sentinel-2).
 
 Los scripts están escritos para funcionar con la interfaz que provee el servicio de [Google Earth Engine](https://earthengine.google.com/).
 

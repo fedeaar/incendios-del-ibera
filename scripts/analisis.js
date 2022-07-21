@@ -178,7 +178,7 @@ var ndvi_modis_masked = comp_modis.updateMask(nbr_mask);  // solo sobre las regi
 
 // medianas ndvi para cada geometria de interés
 var ndvi_modis_medians = geo.geometrias.keys().map(function (key) {
-    var _median = funciones.median(geo.eometrias.get(key), ndvi_modis_masked, scale_modis_mediana).get('NDVI'); 
+    var _median = funciones.median(geo.geometrias.get(key), ndvi_modis_masked, scale_modis_mediana).get('NDVI'); 
     return [key, ee.Number(_median)];
 });
 ndvi_modis_medians = ee.Dictionary(ndvi_modis_medians.flatten())

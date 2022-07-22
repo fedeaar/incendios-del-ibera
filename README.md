@@ -8,8 +8,6 @@
 
 Un análisis exploratorio sobre los incendios que ocurrieron en los Esteros del Iberá durante enero y febrero del 2022. Realizado junto al equipo de datos de TN. 
 
-Los resultados se pueden leer acá.
-
 Todas las [imágenes](./gen/edits) en éste repositorio son cortesía del U.S. Geological Survey (landsat-8) y Copernicus Sentinel Data (sentinel-2).
 
 Los scripts están escritos para funcionar con la interfaz que provee el servicio de [Google Earth Engine](https://earthengine.google.com/).
@@ -24,7 +22,7 @@ Se crearon mosaicos de la provincia de Corrientes sobre imágenes satelitales de
 
 Las composiciones fueron procesadas con el algoritmo simpleComposite de GEE, para colecciones de imágenes de a rangos mensuales.
 
-Para algunos meses donde las composiciones no lograban mostrar el total del territorio, por falta de imágenes o presencia elevadas de nubes, se extendió el rango considerado por a lo sumo 15 días.
+Para algunos meses, donde las composiciones no lograban mostrar el total del territorio -por falta de imágenes o presencia elevadas de nubes-, se extendió el rango considerado por a lo sumo 15 días.
 
 Para las imágenes de enero y febrero se iteró el proceso varias veces, con distintos filtros para las nubes. Luego se procedió a unirlas de manera manual, con el objetivo de preservar la visión del humo en las zonas de incendio y descartar las nubes en otras áreas. 
 
@@ -49,7 +47,7 @@ Para ello se utilizaron imágenes del dataset: “Harmonized Sentinel-2 MSI: Mul
 
 Sobre las imágenes tomadas entre el 01/02/2022 y el 27/02/2022, para Corrientes, se armó un mosaico bajo el siguiente criterio:
 
-- Enmascarar nubes, humo y agua, según la clasificación realizada por el algoritmo de Hollstein. 
+- Enmascarar nubes, humo y agua, según la clasificación realizada por el algorítmo de Hollstein. 
 - Componer la imágen priorizando por fecha más reciente. 
 
 El mosaico resultante fue el siguiente:
@@ -69,13 +67,11 @@ Sobre la imágen se calculó el índice normalizado de superficie quemada (NBR):
 </p>
 </br></br>
 
-Donde NIR refiere a las longitudes de onda del infrarrojo cercano, y SWIR a las del infrarrojo de onda corta. 
+Donde NIR refiere a las longitudes de onda del infrarrojo cercano, y SWIR a las del infrarrojo de onda corta. En el sentinel-2, la banda de imágen ‘B8’ corresponde al espectro de infrarrojo cercano, y ‘B12’ al espectro de infrarrojo medio.
 
 El índice sirve para resaltar las áreas quemadas en grandes zonas de incendio. 
 
-En el sentinel-2, la banda de imágen ‘B8’ corresponde al espectro de infrarrojo cercano, y ‘B12’ al espectro de infrarrojo medio.
-
-Siguiendo la metodología del INTA, se procedió a clasificar por umbral entre zonas quemadas y no quemadas. De manera unitemporal. Se tomó el rango: [-1, -.080] para designar la superficie quemada: 
+Siguiendo la metodología del INTA, se procedió a clasificar por umbral entre zonas quemadas y no quemadas, de manera unitemporal. Se tomó el rango: [-1, -.080] para designar la superficie quemada: 
 
 </br></br>
 <p align="center">
@@ -83,9 +79,9 @@ Siguiendo la metodología del INTA, se procedió a clasificar por umbral entre z
 </p>
 </br></br>
 
-Esta decisión arrojó los mejores resultados en relación al estudio del INTA (el mismo no aclara el umbral utilizado). Es importante considerar que una selección correcta, [en realidad](https://minerva.usc.es/xmlui/bitstream/handle/10347/3819/RR_5_7.pdf?sequence=1&isAllowed=y), debería optimizar iterativamente los resultados para disminuir tanto los errores por comisión, como por omisión. Por ello, se remarca el carácter exploratorio de este análisis. 
+Esta decisión arrojó los mejores resultados en relación al estudio del INTA (el mismo no aclara el umbral utilizado). Es importante considerar que una selección correcta, [en realidad](https://minerva.usc.es/xmlui/bitstream/handle/10347/3819/RR_5_7.pdf?sequence=1&isAllowed=y), debería optimizar iterativamente los resultados para disminuir tanto los errores por comisión, como por omisión. Por ello, se remarca el carácter exploratorio del análisis. 
 
-En base al resultado, se procedió a vectorizar y calcular el área de superficie quemada para las distintas zonas de interés dentro de Corrientes, además de la misma provincia:
+En base al resultado, se procedió a vectorizar y calcular el área de superficie quemada para las distintas zonas de interés dentro de Corrientes. Además de la misma provincia:
 
 - La ecorregión Esteros del Iberá.
 - La reserva provincial Iberá.
@@ -163,9 +159,9 @@ El procedimiento se repitió para calcular las medianas de las distintas regione
 
 Para realizar el cálculo de HRT se tomaron 5 momentos de referencia: 27 de febrero, 31 de marzo, 30 de abril, 31 de mayo y 30 de junio.
 
-Para cada fecha se generó un mosaico sobre un periodo de a lo sumo 45 días previos al día considerado, donde se descartaron imágenes con gran presencia de nubes y se  priorizó por fecha más cercana a la fecha objetivo (en general, las fotos están dentro del mismo mes. Solo en marzo un ‘tile’ de la imágen corresponde a febrero). 
+Para cada fecha se generó un mosaico sobre un periodo de a lo sumo 45 días previos al día considerado, donde se descartaron las imágenes con gran presencia de nubes y se priorizó por fecha más cercana a la fecha objetivo (en general, las fotos están dentro del mismo mes. Solo en marzo un ‘tile’ de la imágen corresponde a febrero). 
 
-Se aisló la zona de incendio dentro de cada región de interés (por enmascaramiento), luego se clasificó por umbral el área correspondiente a un NDVI mayor o igual a la mediana 2021 de cada región, y finalmente se calculó el área total vectorizada.
+Se aisló a la zona de incendio dentro de cada región (por enmascaramiento), luego se clasificó por umbral (NDVI >= mediana 2021) y finalmente se vectorizó y calculó el área total.
 
 </br>
 
@@ -178,9 +174,9 @@ Febrero, imágen base y resultado:
 </p>
 </br></br>
 
-Las zonas grises corresponden al área quemada. Las verdes al área que es igual o superior a la mediana del 2021 para la totalidad de corrientes. 
+Las zonas grises corresponden al área quemada. Las verdes al área que es igual o superior a la mediana del 2021 para la totalidad de Corrientes. 
 
-Vale la pena notar que en el periodo para febrero, a pesar de ser el mismo mes en que ocurrieron los incendios, se registran algunos valores iguales o por encima de la media del 2021 (si bien pocos). Esto tiene que ver con la intensidad del fuego en esas zonas en particular y posibles errores de comisión. 
+Vale la pena notar que en el periodo para febrero, a pesar de ser el mismo mes en que ocurrieron los incendios, se registran algunos valores iguales o por encima de la mediana del 2021 (si bien pocos). Esto tiene que ver con la intensidad del fuego en esas zonas en particular y con posibles errores de comisión. 
 
 </br>
 
@@ -220,7 +216,7 @@ Junio, imágen base y resultado:
 </p>
 </br></br>
 
-En conclusión, las áreas estimada que presentan indicios de recuperación (>= mediana ndvi 2021, para cada zona en particular), por fecha, son:
+En conclusión, las áreas estimada que presentaron indicios de recuperación (>= mediana ndvi 2021, para cada zona en particular), por fecha, son:
 
 </br>
 
@@ -253,6 +249,11 @@ Es decir, entre finales de abril y mayo se habría superado el umbral de recuper
 La investigación se realizó también con el dataset de MODIS (que mide niveles de NDVI cada 16 días, pero en una resolución menor: 250mts). En este caso, el resultado da indicios que para mediados de abril ya se habría alcanzado la recuperación temprana en la mayoría de las zonas (salvo el Parque Nacional Mburucuyá).
 
 Los datos se encuentran en `./gen/analisis`. 
+
+</br></br>
+<p align="center">
+    <img src="./gen/imagenes/progresion.gif?raw=true" alt="junio base hrt." width="400"/>
+</p>
 
 
 

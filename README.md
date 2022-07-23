@@ -1,4 +1,4 @@
-# Incendios del iberá
+# Incendios del Iberá
 
 </br></br>
 <p align="center">
@@ -6,7 +6,7 @@
 </p>
 </br></br>
 
-Un análisis exploratorio sobre los incendios que ocurrieron en los Esteros del Iberá durante enero y febrero del 2022. Realizado junto al equipo de datos de TN. 
+Un análisis exploratorio sobre los incendios que ocurrieron durante enero y febrero del 2022 en Corrientes. Realizado junto al equipo de datos de TN. 
 
 Todas las [imágenes](./gen/edits) en éste repositorio son cortesía del U.S. Geological Survey (landsat-8) y Copernicus Sentinel Data (sentinel-2).
 
